@@ -32,9 +32,31 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
 
       # Additional fields
+      t.integer  :rank
+
       t.string   :first_name
       t.string   :last_name
-      t.string   :username
+      
+      t.date     :birth_day
+      t.string   :death_location
+
+      t.date     :death_day
+      t.string   :death_location
+
+      t.date     :wedding_day
+      t.string   :wedding_location
+
+      t.string   :secondary_email
+      t.string   :telephone
+      t.string   :secondary_telephone
+
+      t.string   :address_line1
+      t.string   :address_line1
+      t.string   :address_post_code
+      t.string   :address_city
+      t.string   :address_region
+      t.string   :address_country
+
 
       t.timestamps
     end

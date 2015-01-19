@@ -23,7 +23,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: flightscanner_production
+  database: siteld_production
   pool: 5
   username: ENV["PSQL_USERNAME"]
   password: ENV["PSQL_PASSWORD"]
