@@ -10,9 +10,20 @@ namespace :scrape_family do
     csv_text = File.read('lib/tasks/list.csv')
     csv = CSV.parse(csv_text, :headers => true)
 
-    csv.each do |row|
+    csv.each_with_index do |row, index|
       # puts ">>>>>>>> #{row.to_hash}"
-      puts ">>>>>>>> #{row.to_hash['email']}"
+      if index < 6
+
+        puts "#{index} #{row.to_hash['email']}"
+        # User.create(:email => row.to_hash['email'] )
+        user = User.new(:email => row.to_hash['email'], :password => 'LD2015', :password_confirmation => 'LD2015')
+        if  user.save
+          puts user
+        else
+          puts "no no"
+        end
+
+      end
       # Language.create!(row.to_hash)
     end
 

@@ -36,6 +36,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       t.string   :first_name
       t.string   :last_name
+      t.string   :maiden_name
       
       t.date     :birth_day
       t.string   :death_location
