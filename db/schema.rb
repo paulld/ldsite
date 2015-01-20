@@ -31,12 +31,12 @@ ActiveRecord::Schema.define(version: 20150120154219) do
     t.integer  "failed_attempts",        default: 0,  null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.integer  "rank"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "maiden_name"
     t.date     "birth_day"
     t.string   "death_location"
+    t.boolean  "is_deceased"
     t.date     "death_day"
     t.date     "wedding_day"
     t.string   "wedding_location"

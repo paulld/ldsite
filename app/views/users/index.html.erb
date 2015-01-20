@@ -2,9 +2,9 @@
   <h1>List of Users</h1>
   <% @users.each do |user| %>
     <div class="col-md-4">
-      <%= image_tag user.avatar.url(:medium), :class => "img-circle" %>
+      <%= image_tag user.avatar.url(:thumb), :class => "img-circle" %>
       <p class="list-users-name"><%= user.first_name %> <%= user.last_name %></p>
-      <p class="list-users-email"><%= user.email %></p>
+      <p class="list-users-email"><%= user.username %></p>
     </div>
   <% end %>
 </div>
