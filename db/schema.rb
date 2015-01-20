@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150111131437) do
+ActiveRecord::Schema.define(version: 20150120154219) do
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20150111131437) do
     t.integer  "rank"
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "maiden_name"
     t.date     "birth_day"
     t.string   "death_location"
     t.date     "death_day"
@@ -53,11 +54,13 @@ ActiveRecord::Schema.define(version: 20150111131437) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "username"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true
+  add_index "users", ["username"], name: "index_users_on_username", unique: true
 
 end
