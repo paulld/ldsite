@@ -32,8 +32,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
 
       # Additional fields
-      t.integer  :rank
-
       t.string   :first_name
       t.string   :last_name
       t.string   :maiden_name
@@ -41,6 +39,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.date     :birth_day
       t.string   :death_location
 
+      t.boolean  :is_deceased
       t.date     :death_day
       t.string   :death_location
 
