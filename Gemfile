@@ -14,15 +14,15 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '~> 2.3.0'
-gem 'slim'
+# gem 'slim'
 gem 'nokogiri'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
+# gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0',          group: :doc
+# gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Good for showing error messages when form has not passed validations
 gem 'simple_form'
@@ -52,8 +52,9 @@ gem "paperclip", "~> 4.2"
 gem 'aws-sdk', '~> 1.5.7'
 # Managing Sensitive ENV variables
 
-
-gem 'will_paginate', '~> 3.0.6'
+# gem 'local_time'
+# gem 'momentjs-rails'
+# gem 'will_paginate', '~> 3.0.6'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
