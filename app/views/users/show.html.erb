@@ -1,54 +1,110 @@
 <h1><%= @user.first_name %> <%= @user.last_name %></h1>
 
 <div class="row user-show">
-  <div class="col-sm-6">
+  <div class="col-sm-7">
     <div class="details-block">
-      <div>Rang Familial : <%= @user.username %></div>
+      <dl class="dl-horizontal">
+        <dt>Rang Familial :</dt>
+        <dd><%= @user.username %></dd>
 
-      <% if @user.maiden_name %>
-        <div>Nom de jeune fille : <%= @user.maiden_name %></div>
-      <% end %>
+        <% if @user.maiden_name %>
+          <dt>Nom de jeune fille :</dt>
+          <dd><%= @user.maiden_name %></dd>
+        <% end %>
 
 
-      <% if @user.birth_day || @user.birth_location %>
-        <div>
-          Naissance: 
-          <% if @user.birth_day %><%= @user.birth_day.strftime('%d/%m/%Y') %><% end %><% if @user.birth_day && @user.birth_location %>, <% end %>
-          <% if @user.birth_location %><%= @user.birth_location %><% end %>
-        </div>
-      <% end %>
+        <% if @user.birth_day || @user.birth_location %>
+          <dt>Naissance :</dt>
+          <dd>
+            <% if @user.birth_day %><%= @user.birth_day.strftime('%d/%m/%Y') %><% end %><% if @user.birth_day && @user.birth_location %>, <% end %>
+            <% if @user.birth_location %><%= @user.birth_location %><% end %>
+          </dd>
+        <% end %>
 
-      <% if @user.wedding_day || @user.wedding_location %>
-        <div>
-          Mariage: 
-          <% if @user.wedding_day %><%= @user.wedding_day.strftime('%d/%m/%Y') %><% end %><% if @user.wedding_day && @user.wedding_location %>, <% end %>
-          <% if @user.wedding_location %><%= @user.wedding_location %><% end %>
-        </div>
-      <% end %>
+        <% if @user.wedding_day || @user.wedding_location %>
+          <dt>Mariage :</dt>
+          <dd>
+            <% if @user.wedding_day %><%= @user.wedding_day.strftime('%d/%m/%Y') %><% end %><% if @user.wedding_day && @user.wedding_location %>, <% end %>
+            <% if @user.wedding_location %><%= @user.wedding_location %><% end %>
+          </dd>
+        <% end %>
 
-      <% if @user.death_day || @user.death_location %>
-        <div>
-          Décès: 
-          <% if @user.death_day %><%= @user.death_day.strftime('%d/%m/%Y') %><% end %><% if @user.death_day && @user.death_location %>, <% end %>
-          <% if @user.death_location %><%= @user.death_location %><% end %>
-        </div>
-      <% end %>
+        <% if @user.death_day || @user.death_location %>
+          <dt>Décès :</dt>
+          <dd>
+            <% if @user.death_day %><%= @user.death_day.strftime('%d/%m/%Y') %><% end %><% if @user.death_day && @user.death_location %>, <% end %>
+            <% if @user.death_location %><%= @user.death_location %><% end %>
+          </dd>
+        <% end %>
+      </dl>
     </div>
 
     <% if !@user.death_day %>
       <div class="details-block">
-        <div>Email :
-          <% if @user.email.split('@')[1] != "exemple.com" %>
-            <%= @user.email %>
-          <% else %>
-            pas d'email enregistré
+        <dl class="dl-horizontal">
+          <dt>Email :</dt>
+          <dd>
+            <% if @user.email.split('@')[1] != "exemple.com" %>
+              <%= @user.email %>
+            <% else %>
+              pas d'email enregistré
+            <% end %>
+          </dd>
+
+          <% if @user.secondary_email %>
+            <dt>Email :</dt>
+            <dd><%= @user.secondary_email %></dd>
           <% end %>
-        </div>
+
+          <% if @user.telephone %>
+            <dt>Telephone :</dt>
+            <dd><%= @user.telephone %></dd>
+          <% end %>
+
+          <% if @user.secondary_telephone %>
+            <dt>Telephone :</dt>
+            <dd><%= @user.secondary_telephone %></dd>
+          <% end %>
+
+          <% if @user.address_line1 || @user.address_city %>
+            <dt>Adresse :</dt>
+            <dd>
+              <% if @user.address_line1 %>
+                <%= @user.address_line1 %>
+              <% end %>
+            </dd>
+            <dd>
+              <% if @user.address_post_code %>
+                <%= @user.address_post_code %>
+              <% end %>
+              <% if @user.address_city %>
+                <%= @user.address_city %><% end %><% if @user.address_region && @user.address_city %>,<% end %><% if @user.address_region %>
+                <%= @user.address_region %><% end %><% if (@user.address_region || @user.address_city) && @user.address_country %>,<% end %>
+              <% if @user.address_country %>
+                <%= @user.address_country %>
+              <% end %>
+            </dd>
+          <% end %>
+        </dl>
       </div>
+    <% end %>
+
+    <% if !@user.death_day %>
+      <!-- <div class="details-block">
+        <dl class="dl-horizontal">
+          <dt>Dernière connection :</dt>
+          <dd>
+            <% if @user.last_sign_in_at %>
+              <%= @user.last_sign_in_at.strftime('%d/%m/%Y') %></dd>
+            <% else %>
+              aucune
+            <% end %>
+        </dl>
+      </div> -->
     <% end %>
   </div>
 
-  <div class="col-sm-6">
+  <div class="col-sm-5">
     <div><%= image_tag @user.avatar.url(:medium), :class => "avatar" %></div>
   </div>
 </div>
