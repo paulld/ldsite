@@ -1,3 +1,54 @@
-<h1>User: <%= @user.first_name %> <%= @user.last_name %></h1>
-<div><%= @user.email %></div>
-<div><%= image_tag @user.avatar.url(:medium) %></div>
+<h1><%= @user.first_name %> <%= @user.last_name %></h1>
+
+<div class="row user-show">
+  <div class="col-sm-6">
+    <div class="details-block">
+      <div>Rang Familial : <%= @user.username %></div>
+
+      <% if @user.maiden_name %>
+        <div>Nom de jeune fille : <%= @user.maiden_name %></div>
+      <% end %>
+
+
+      <% if @user.birth_day || @user.birth_location %>
+        <div>
+          Naissance: 
+          <% if @user.birth_day %><%= @user.birth_day.strftime('%d/%m/%Y') %><% end %><% if @user.birth_day && @user.birth_location %>, <% end %>
+          <% if @user.birth_location %><%= @user.birth_location %><% end %>
+        </div>
+      <% end %>
+
+      <% if @user.wedding_day || @user.wedding_location %>
+        <div>
+          Mariage: 
+          <% if @user.wedding_day %><%= @user.wedding_day.strftime('%d/%m/%Y') %><% end %><% if @user.wedding_day && @user.wedding_location %>, <% end %>
+          <% if @user.wedding_location %><%= @user.wedding_location %><% end %>
+        </div>
+      <% end %>
+
+      <% if @user.death_day || @user.death_location %>
+        <div>
+          Décès: 
+          <% if @user.death_day %><%= @user.death_day.strftime('%d/%m/%Y') %><% end %><% if @user.death_day && @user.death_location %>, <% end %>
+          <% if @user.death_location %><%= @user.death_location %><% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <% if !@user.death_day %>
+      <div class="details-block">
+        <div>Email :
+          <% if @user.email.split('@')[1] != "exemple.com" %>
+            <%= @user.email %>
+          <% else %>
+            pas d'email enregistré
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-sm-6">
+    <div><%= image_tag @user.avatar.url(:medium), :class => "avatar" %></div>
+  </div>
+</div>

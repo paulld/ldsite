@@ -37,7 +37,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string   :maiden_name
       
       t.date     :birth_day
-      t.string   :death_location
+      t.string   :birth_location
 
       t.boolean  :is_deceased
       t.date     :death_day

@@ -10,25 +10,32 @@ namespace :scrape_family do
 
     csv.each_with_index do |row, index|
       # if index < 10
+
+      # puts row.to_hash['birth_day']
+      # puts "#{row.to_hash['birth_day']} 12:0:00.000000000 Z"
         user = User.new()
-        user.username               = row.to_hash['username']             || ""
+        user.username               = row.to_hash['username']
         user.email                  = row.to_hash['email']                || "#{user.username}@exemple.com"
-        user.first_name             = row.to_hash['first_name']           || ""
-        user.last_name              = row.to_hash['last_name']            || ""
-        user.maiden_name            = row.to_hash['maiden_name']          || ""
-        user.birth_day              = row.to_hash['birth_day']            || ""
-        user.death_day              = row.to_hash['death_day']            || ""
-        user.death_location         = row.to_hash['death_location']       || ""
+        user.first_name             = row.to_hash['first_name']           unless !row.to_hash['first_name']
+        user.last_name              = row.to_hash['last_name']            unless !row.to_hash['last_name']
+        user.maiden_name            = row.to_hash['maiden_name']          unless !row.to_hash['maiden_name']
+        user.birth_day              = row.to_hash['birth_day']            unless !row.to_hash['birth_day']
+        # user.birth_day              = "#{row.to_hash['birth_day']} 12:0:00.000000000 Z"            unless !row.to_hash['birth_day']
+        user.birth_location         = row.to_hash['birth_location']       unless !row.to_hash['birth_location']
+        user.death_day              = row.to_hash['death_day']            unless !row.to_hash['death_day']
+        # user.death_day              = "#{row.to_hash['death_day']} 12:0:00.000000000 Z"            unless !row.to_hash['death_day']
+        user.death_location         = row.to_hash['death_location']       unless !row.to_hash['death_location']
         # user.is_deceased            = if (user.death_day == "") then false else true end
-        user.wedding_day            = row.to_hash['wedding_day']          || ""
-        user.wedding_location       = row.to_hash['wedding_location']     || ""
-        user.address_line1          = row.to_hash['address_line1']        || ""
-        user.address_post_code      = row.to_hash['address_post_code']    || ""
-        user.address_city           = row.to_hash['address_city']         || ""
-        user.address_country        = row.to_hash['address_country']      || ""
-        user.secondary_email        = row.to_hash['secondary_email']      || ""
-        user.telephone              = row.to_hash['telephone']            || ""
-        user.secondary_telephone    = row.to_hash['secondary_telephone']  || ""
+        user.wedding_day            = row.to_hash['wedding_day']          unless !row.to_hash['wedding_day']
+        # user.wedding_day            = "#{row.to_hash['wedding_day']} 12:0:00.000000000 Z"          unless !row.to_hash['wedding_day']
+        user.wedding_location       = row.to_hash['wedding_location']     unless !row.to_hash['wedding_location']
+        user.address_line1          = row.to_hash['address_line1']        unless !row.to_hash['address_line1']
+        user.address_post_code      = row.to_hash['address_post_code']    unless !row.to_hash['address_post_code']
+        user.address_city           = row.to_hash['address_city']         unless !row.to_hash['address_city']
+        user.address_country        = row.to_hash['address_country']      unless !row.to_hash['address_country']
+        user.secondary_email        = row.to_hash['secondary_email']      unless !row.to_hash['secondary_email']
+        user.telephone              = row.to_hash['telephone']            unless !row.to_hash['telephone']
+        user.secondary_telephone    = row.to_hash['secondary_telephone']  unless !row.to_hash['secondary_telephone']
         user.password               = 'LD2015'
         user.password_confirmation  = 'LD2015'
 

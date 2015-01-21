@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(:id => params[:id])
+    @user = User.find_by(:username => params[:username])
     if @user.nil?
       # head 402
       # head 406

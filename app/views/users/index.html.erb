@@ -1,10 +1,14 @@
-<div class="row">
-  <h1>List of Users</h1>
+<div class="row user-index">
+  <h1>List Complète</h1>
   <% @users.each do |user| %>
-    <div class="col-md-4">
-      <%= image_tag user.avatar.url(:thumb), :class => "img-circle" %>
-      <p class="list-users-name"><%= user.first_name %> <%= user.last_name %></p>
-      <p class="list-users-email"><%= user.username %></p>
+    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 user-item">
+      <div class="avatar" style="background-image: url('<%= user.avatar.url(:thumb) %>')">
+      </div>
+      <div class="list-users-name">
+        <%= link_to user_show_path(user.username) do %>
+          <%= user.first_name %> <%= user.last_name %>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>
