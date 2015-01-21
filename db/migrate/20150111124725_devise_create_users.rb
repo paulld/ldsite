@@ -51,12 +51,14 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string   :secondary_telephone
 
       t.string   :address_line1
-      t.string   :address_line1
+      t.string   :address_line2
       t.string   :address_post_code
       t.string   :address_city
       t.string   :address_region
       t.string   :address_country
 
+      t.integer  :family_level
+      t.boolean  :is_in_law
 
       t.timestamps
     end

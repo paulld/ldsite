@@ -25,5 +25,13 @@
     max-width: 200px;
     max-height: 250px;
   }
-
+  .dl-horizontal dt {
+    text-align: left;
+    font-weight: inherit;
+    width: 120px;
+  }
+  .dl-horizontal dd {
+    margin-left: 120px;
+  }
 }
+
