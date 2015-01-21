@@ -1,3 +1,29 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user-index {
+  .user-item, .user-item > div {
+    text-align: center;
+  }
+  .avatar {
+    width: 120px;
+    height: 120px;
+    background-position: center center;
+    background-size: cover;
+    border-radius: 50%;
+    /*float: right;*/
+    margin: 10px auto 5px;
+  }
+}
+
+.user-show {
+  .details-block {
+    margin: 20px 0;
+  }
+  .show-avatar {
+    max-width: 200px;
+    max-height: 250px;
+  }
+
+}

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get   '/users/'                                   => 'users#index'
   get   'edit'                                      => 'users#edit'
   patch 'edit'                                      => 'users#update'
-  get   '/users/:id'                                => 'users#show',      as: 'user_show'
+  get   '/users/:username'                          => 'users#show',      as: 'user_show'
 
 
   get   '/companies'                                => 'companies#index', as: 'companies'
