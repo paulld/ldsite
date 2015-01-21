@@ -31,5 +31,3 @@ bower.json
 
 .env
 Procfile
-**.csv
-**.xlsx
