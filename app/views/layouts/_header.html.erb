@@ -3,14 +3,16 @@
   <li role="presentation" class="<%= is_active?(root_path) %>">
     <%= link_to "Accueil", root_path %>
   </li>
-  <li role="presentation" class="<%= is_active?(users_list_path) %>">
-    <%= link_to "Liste", users_list_path %>
-  </li>
-  <li role="presentation" class="<%= is_active?(users_trombi_path) %>">
-    <%= link_to "Trombinoscope", users_trombi_path %>
-  </li>
   
   <% if current_user %>
+  
+    <li role="presentation" class="<%= is_active?(users_list_path) %>">
+      <%= link_to "Liste", users_list_path %>
+    </li>
+    <li role="presentation" class="<%= is_active?(users_trombi_path) %>">
+      <%= link_to "Trombinoscope", users_trombi_path %>
+    </li>
+  
     <li role="presentation" class="nav-right <%= is_active?(destroy_user_session_path) %>">
       <%= link_to "Déconnection", destroy_user_session_path, :method => 'delete' %>
     </li>
@@ -25,9 +27,9 @@
     </li>
   
   <% else %>
-    <li role="presentation" class="nav-right <%= is_active?(new_user_registration_path) %>">
+    <!-- <li role="presentation" class="nav-right <%= is_active?(new_user_registration_path) %>">
       <%= link_to "S'enregistrer", new_user_registration_path %>
-    </li>
+    </li> -->
     <li role="presentation" class="nav-right <%= is_active?(new_user_session_path) %>">
       <%= link_to "Se Connecter", new_user_session_path %>
     </li>
