@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       # head 406
       redirect_to :root, flash: { error: 'Aucun membre de la famille ne correspond à ce code.' }
     else
-      @user_country_name = Country.find_country_by_alpha2(@user.address_country).translations['fr'] if @user.address_country?
+      @user_country_name = Country.find_country_by_alpha2(@user.address_country).translations['fr'] unless !@user.address_country?
       render :show
     end
   end

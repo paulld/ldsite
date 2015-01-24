@@ -28,29 +28,42 @@
   .dl-horizontal dt {
     text-align: left;
     font-weight: inherit;
-    width: 120px;
+    width: 135px;
   }
   .dl-horizontal dd {
-    margin-left: 120px;
+    margin-left: 135px;
   }
 }
 
-
-.user_birth_day > label,
-.user_wedding_day > label {
-  display: block;
-}
-.user_birth_day > select,
-.user_wedding_day > select {
-  display: inline-block;
-  width: auto;
-}
-.form-date-inline > .form-group {
-  display: inline-block;
-}
-.form-date-inline > .form-group:nth-child(2) {
-  width: calc(100%-200px);
-}
-.mariage-checkbox {
-  padding-left: 20px;
+.user-edit {
+  h2 {
+    margin-top: 35px;
+    margin-bottom: 20px;
+  }
+  .user_birth_day > label,
+  .user_wedding_day > label {
+    display: block;
+  }
+  .user_birth_day > select,
+  .user_wedding_day > select {
+    display: inline-block;
+    width: auto;
+  }
+  .form-date-inline > .form-group {
+    display: inline-block;
+  }
+  .form-date-inline > .form-group:nth-child(2) {
+    width: calc(100%-200px);
+  }
+  .mariage-checkbox {
+    padding-left: 20px;
+  }
+  .wedding-checkbox {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .avatar-input {
+    font-size: 16px;
+    margin-top: 8px;
+  }
 }
