@@ -23,11 +23,8 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    @user.update_attributes( :avatar => user_params[:avatar], 
-                             :first_name => user_params[:first_name],
-                             :last_name => user_params[:last_name],
-                             :username => user_params[:username] )
-    redirect_to user_show_url(current_user)
+    @user.update_attributes( user_params )
+    redirect_to user_show_url(current_user.username)
   end
 
   private
@@ -36,7 +33,7 @@ class UsersController < ApplicationController
   # Be sure to update your create() and update() controller methods.
 
   def user_params
-    params.require(:user).permit(:avatar, :first_name, :last_name, :username)
+    params.require(:user).permit(:avatar, :first_name, :last_name, :maiden_name)
   end
 
 end
