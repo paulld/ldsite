@@ -2,22 +2,111 @@
   <%= link_to "Go to Update my Password", edit_user_registration_path, :class => "btn btn-default" %>
 </div>
 
-<h1>Add a picture to your profile</h1>
 
 <%= simple_form_for @user, url: edit_path, html: { :multipart => true } do |f| %>
 
-  <div class="form-inputs">
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :username %> <span>(has to be unique)</span>
+  <div class="row">
+    <div class="col-sm-6">
+      <h2>Mes données personnelles :</h2>
+      <div class="form-inputs">
+        <%= f.input :first_name, label: 'Prénom' %>
+        <%= f.input :last_name, label: 'Nom de Famille' %>
+        <%= f.input :maiden_name, label: 'Nom de Jeune Fille' %>
+        
+        <div class="row">
+          <div class="col-sm-6">
+            <%= f.input :birth_day, label: 'Date de naissance',
+                                      as: :date, 
+                                      start_year: Date.today.year - 100,
+                                      end_year: Date.today.year, 
+                                      discard_day: false,
+                                      order: [:day, :month, :year]
+                                       %>
+          </div>
+          <div class="col-sm-6">
+            <%= f.input :birth_location, label: 'Lieu de naissance' %>
+          </div>
+        </div>
+        <div class="mariage-checkbox">
+          <label class="checkbox">
+            <input class="boolean optional" id="user_published" name="user[remember_me]" type="checkbox" value="1">
+            Mariage?
+          </label>
+        </div>
+
+        <div class="row" style="display:none;">
+          <div class="col-sm-6">
+            <%= f.input :wedding_day, label: 'Date de mariage',
+                                      # as: :date, 
+                                      start_year: Date.today.year - 100,
+                                      end_year: Date.today.year, 
+                                      discard_day: false,
+                                      order: [:day, :month, :year]
+                                       %>
+          </div>
+          <div class="col-sm-6">
+            <%= f.input :wedding_location, label: 'Lieu de mariage' %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <h2>Mes coordonnées :</h2>
+      <div class="form-inputs">
+
+        <div class="row">
+          <div class="col-sm-6">
+            <%= f.input :email, label: 'Adresse Email (doit être unique)' %>
+          </div>
+          <div class="col-sm-6">
+            <%= f.input :secondary_email, label: 'Adresse Email complémentaire' %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <%= f.input :telephone, label: 'Téléphone' %>
+          </div>
+          <div class="col-sm-6">
+            <%= f.input :secondary_telephone, label: 'Téléphone complémentaire' %>
+          </div>
+        </div>
+        <%= f.input :address_line1, label: 'Adresse' %>
+        <%= f.input :address_line2, label: 'Adresse (complément)' %>
+        <div class="row">
+          <div class="col-sm-6">
+            <%= f.input :address_post_code, label: 'Code Postal' %>
+          </div>
+          <div class="col-sm-6">
+            <%= f.input :address_city, label: 'Ville' %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <%= f.input :address_region, label: 'Région' %>
+          </div>
+          <div class="col-sm-6">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <% if current_user.avatar? %>
+    <h2>Changer ma photo de profil :</h2>
+  <% else %>
+    <h2>Rajouter ma photo de profil :</h2>
+  <% end %>
+
   <div class="form-group">
-    <%= f.label "picture upload" %>
+    <%= f.label "Télécharger ma photo" %>
     <%= f.file_field :avatar %>
   </div>
 
+  <h2>Enregistrement :</h2>
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, 'Enregistrer mes changements' %>
   </div>
 
 <% end %>

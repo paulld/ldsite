@@ -35,3 +35,22 @@
   }
 }
 
+
+.user_birth_day > label,
+.user_wedding_day > label {
+  display: block;
+}
+.user_birth_day > select,
+.user_wedding_day > select {
+  display: inline-block;
+  width: auto;
+}
+.form-date-inline > .form-group {
+  display: inline-block;
+}
+.form-date-inline > .form-group:nth-child(2) {
+  width: calc(100%-200px);
+}
+.mariage-checkbox {
+  padding-left: 20px;
+}
