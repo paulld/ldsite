@@ -1,7 +1,10 @@
-$main-color: rgb(100,100,100);
+/*$main-color: rgb(100,100,100); */
+$main-color: hsla(209,55%,71%,1);
+$main-color-dark: hsla(209,55%,51%,1);
 
 .body {
   padding-top: 20px;
+  padding-bottom: 40px;
 }
 .nav.nav-tabs > .nav-right {
   float: right;
@@ -18,4 +21,13 @@ body {
     font-weight: 100;
     color: $main-color;
   }
+}
+
+.btn.btn-default {
+  background-color: hsla(209,55%,71%,1);
+  color: hsla(209,55%,99%,1);
+  border-color: hsla(209,55%,65%,1);
+}
+.nav.nav-tabs a {
+  color: $main-color-dark;
 }
