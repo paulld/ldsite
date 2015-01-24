@@ -26,7 +26,11 @@ body {
 .btn.btn-default {
   background-color: hsla(209,55%,71%,1);
   color: hsla(209,55%,99%,1);
-  border-color: hsla(209,55%,65%,1);
+  border-color: hsla(209,55%,68%,1);
+  &:hover {
+    background-color: hsla(209,55%,61%,1);
+    color: hsla(209,55%,95%,1);
+  }
 }
 .nav.nav-tabs a {
   color: $main-color-dark;
