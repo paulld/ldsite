@@ -28,6 +28,7 @@ gem 'nokogiri'
 gem 'simple_form'
 
 gem 'devise'
+gem 'rails-i18n'
 # gem 'cancancan', '~> 1.10'
 
 group :production do
