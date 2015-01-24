@@ -29,6 +29,8 @@ gem 'simple_form'
 
 gem 'devise'
 gem 'rails-i18n'
+gem 'countries'
+gem 'country_select'
 # gem 'cancancan', '~> 1.10'
 
 group :production do

@@ -27,12 +27,18 @@
             <%= f.input :birth_location, label: 'Lieu de naissance' %>
           </div>
         </div>
-        <div class="mariage-checkbox">
+        <div class="row">
+          <div class="col-sm-12">
+            <label class="optional control-label">Marié(e) ?</label>
+            <%= f.collection_select :is_married, [[true, 'Oui'] ,[false, 'Non']], :first, :last %>
+          </div>
+        </div>
+        <!-- <div class="mariage-checkbox">
           <label class="checkbox">
             <input class="boolean optional" id="user_published" name="user[remember_me]" type="checkbox" value="1">
             Mariage?
           </label>
-        </div>
+        </div> -->
 
         <div class="row" style="display:none;">
           <div class="col-sm-6">
@@ -87,6 +93,7 @@
             <%= f.input :address_region, label: 'Région' %>
           </div>
           <div class="col-sm-6">
+            <%= f.input :address_country, label: 'Pays' %>
           </div>
         </div>
       </div>
