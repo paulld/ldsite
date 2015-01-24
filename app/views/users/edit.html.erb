@@ -3,7 +3,7 @@
 </div>
 
 
-<%= simple_form_for @user, url: edit_path, html: { :multipart => true } do |f| %>
+<%= simple_form_for @user, url: edit_path, html: { :multipart => true, :class => 'user-edit' } do |f| %>
 
   <div class="row">
     <div class="col-sm-6">
@@ -27,20 +27,14 @@
             <%= f.input :birth_location, label: 'Lieu de naissance' %>
           </div>
         </div>
-        <div class="row">
+
+        <div class="row wedding-checkbox">
           <div class="col-sm-12">
             <label class="optional control-label">Marié(e) ?</label>
             <%= f.collection_select :is_married, [[true, 'Oui'] ,[false, 'Non']], :first, :last %>
           </div>
         </div>
-        <!-- <div class="mariage-checkbox">
-          <label class="checkbox">
-            <input class="boolean optional" id="user_published" name="user[remember_me]" type="checkbox" value="1">
-            Mariage?
-          </label>
-        </div> -->
-
-        <div class="row" style="display:none;">
+        <div id="wedding_form" class="row" <% if !current_user.is_married %>style="display:none;"<% end %>>
           <div class="col-sm-6">
             <%= f.input :wedding_day, label: 'Date de mariage',
                                       # as: :date, 
@@ -108,7 +102,7 @@
 
   <div class="form-group">
     <%= f.label "Télécharger ma photo" %>
-    <%= f.file_field :avatar %>
+    <%= f.file_field :avatar, :class => "avatar-input" %>
   </div>
 
   <h2>Enregistrement :</h2>
