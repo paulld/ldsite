@@ -3,8 +3,11 @@
   <li role="presentation" class="<%= is_active?(root_path) %>">
     <%= link_to "Accueil", root_path %>
   </li>
-  <li role="presentation" class="<%= is_active?(users_path) %>">
-    <%= link_to "Liste Complète", users_path %>
+  <li role="presentation" class="<%= is_active?(users_list_path) %>">
+    <%= link_to "Liste", users_list_path %>
+  </li>
+  <li role="presentation" class="<%= is_active?(users_trombi_path) %>">
+    <%= link_to "Trombinoscope", users_trombi_path %>
   </li>
   
   <% if current_user %>
@@ -12,10 +15,10 @@
       <%= link_to "Déconnection", destroy_user_session_path, :method => 'delete' %>
     </li>
     <li role="presentation" class="nav-right <%= is_active?(edit_user_registration_path) %>">
-      <%= link_to "Modifier Mot de Passe", edit_user_registration_path %>
+      <%= link_to "Modif. Mot de Passe", edit_user_registration_path %>
     </li>
     <li role="presentation" class="nav-right <%= is_active?(edit_path) %>">
-      <%= link_to "Modifier Profil", edit_path %>
+      <%= link_to "Modif. Profil", edit_path %>
     </li>
     <li role="presentation" class="nav-right <%= is_active?(user_show_path(current_user.username)) %>">
       <%= link_to "Mon Profil", user_show_path(current_user.username) %>

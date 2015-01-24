@@ -5,8 +5,8 @@ namespace :scrape_companies do
     require 'open-uri'
     require 'csv'
 
-    url = "http://s3.amazonaws.com/nvest/nasdaq_09_11_2014.csv"
-
+    # url = "http://s3.amazonaws.com/nvest/nasdaq_09_11_2014.csv"
+    url = ENV['LIST_URL']
     url_data = open(url)
 
     CSV.foreach(url_data) do |symbol, name|
