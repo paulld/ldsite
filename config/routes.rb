@@ -4,20 +4,10 @@ Rails.application.routes.draw do
 
   root 'static_pages#index'
   
-  get   '/users/'                                   => 'users#index'
+  get   '/liste/'                                   => 'users#index',         as: 'users_list'
+  get   '/trombi/'                                  => 'users#index_trombi',  as: 'users_trombi'
   get   'edit'                                      => 'users#edit'
   patch 'edit'                                      => 'users#update'
-  get   '/users/:username'                          => 'users#show',      as: 'user_show'
-
-
-  get   '/companies'                                => 'companies#index', as: 'companies'
-  get   '/companies/:stock_exchange'                => 'companies#index'
-  get   '/companies/:stock_exchange/:symbol'        => 'companies#show',  as: 'company'
-
-  get   '/airlines'                                 => 'airlines#index',  as: 'airlines'
-  get   '/airlines/:icao'                           => 'airlines#show',   as: 'airline'
-
-  get   '/airplanes'                                => 'airplanes#index', as: 'airplanes'
-  get   '/airplanes/:airline_iata/:registration_code' => 'airplanes#show',  as: 'airplane'
+  get   '/liste/:username'                          => 'users#show',          as: 'user_show'
 
   end

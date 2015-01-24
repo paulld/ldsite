@@ -1,14 +1,38 @@
-<div class="row user-index">
-  <h1>List Complète</h1>
-  <% @users.each do |user| %>
-    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 user-item">
-      <div class="avatar" style="background-image: url('<%= user.avatar.url(:thumb) %>')">
-      </div>
-      <div class="list-users-name">
-        <%= link_to user_show_path(user.username) do %>
-          <%= user.first_name %> <%= user.last_name %>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
+  <div class="row user-index">
+    <h1>List Complète</h1>
+  </div>
 </div>
+<div class="container-fluid">
+  <div class="table-responsive">
+    <table class="table table-stripped">
+      <thead>
+        <tr>
+          <th>Rang Familial</th>
+          <th>Prénom</th>
+          <th>Nom de Famille</th>
+          <th>Nom de Jeune Fille</th>
+          <th colspan="2">Date et Lieu de Naissance</th>
+          <th colspan="2">Date et Lieu de Décès</th>
+          <th colspan="2">Date et Lieu de Mariage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= link_to user_show_path(user.username) do %><%= user.username %><% end %></td>
+            <td><% if !user.first_name.blank? %><%= user.first_name %><% end %></td>
+            <td><% if !user.last_name.blank? %><%= user.last_name %><% end %></td>
+            <td><% if !user.maiden_name.blank? %><%= user.maiden_name %><% end %></td>
+            <td><% if !user.birth_day.blank? %><%= user.birth_day.strftime('%d/%m/%Y') %><% end %></td>
+            <td><% if !user.birth_location.blank? %><%= user.birth_location %><% end %></td>
+            <td><% if !user.death_day.blank? %><%= user.death_day.strftime('%d/%m/%Y') %><% end %></td>
+            <td><% if !user.death_location.blank? %><%= user.death_location %><% end %></td>
+            <td><% if !user.wedding_day.blank? %><%= user.wedding_day.strftime('%d/%m/%Y') %><% end %></td>
+            <td><% if !user.wedding_location.blank? %><%= user.wedding_location %><% end %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="container">
