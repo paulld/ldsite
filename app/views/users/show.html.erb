@@ -21,7 +21,7 @@
           </dd>
         <% end %>
 
-        <% if @user.wedding_day || @user.wedding_location %>
+        <% if @user.is_married %>
           <dt>Mariage :</dt>
           <dd>
             <% if @user.wedding_day %><%= @user.wedding_day.strftime('%d/%m/%Y') %><% end %><% if @user.wedding_day && @user.wedding_location %>, <% end %>
@@ -29,7 +29,7 @@
           </dd>
         <% end %>
 
-        <% if @user.death_day || @user.death_location %>
+        <% if @user.is_deceased %>
           <dt>Décès :</dt>
           <dd>
             <% if @user.death_day %><%= @user.death_day.strftime('%d/%m/%Y') %><% end %><% if @user.death_day && @user.death_location %>, <% end %>
@@ -81,7 +81,7 @@
                 <%= @user.address_city %><% end %><% if @user.address_region && @user.address_city %>,<% end %><% if @user.address_region %>
                 <%= @user.address_region %><% end %><% if (@user.address_region || @user.address_city) && @user.address_country %>,<% end %>
               <% if @user.address_country %>
-                <%= @user.address_country %>
+                <%= @user_country_name %>
               <% end %>
             </dd>
           <% end %>

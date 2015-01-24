@@ -39,10 +39,11 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.date     :birth_day
       t.string   :birth_location
 
-      t.boolean  :is_deceased
+      t.boolean  :is_deceased, default: false
       t.date     :death_day
       t.string   :death_location
 
+      t.boolean  :is_married, default: false
       t.date     :wedding_day
       t.string   :wedding_location
 
