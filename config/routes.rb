@@ -10,4 +10,4 @@ Rails.application.routes.draw do
   patch 'edit'                                      => 'users#update'
   get   '/liste/:username'                          => 'users#show',          as: 'user_show'
 
-  end
+end

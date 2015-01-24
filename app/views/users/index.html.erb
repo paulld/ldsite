@@ -1,19 +1,27 @@
   <div class="row user-index">
-    <h1>List Complète</h1>
+    <div class="col-xs-12">
+      <h1>Liste Complète</h1>
+    </div>
   </div>
 </div>
-<div class="container-fluid">
+<div class="container">
   <div class="table-responsive">
-    <table class="table table-stripped">
+    <table class="table table-striped">
       <thead>
         <tr>
           <th>Rang Familial</th>
           <th>Prénom</th>
           <th>Nom de Famille</th>
           <th>Nom de Jeune Fille</th>
+          <!-- <th>Naissance</th>
+          <th>Décès</th>
+          <th>Mariage</th> -->
           <th colspan="2">Date et Lieu de Naissance</th>
           <th colspan="2">Date et Lieu de Décès</th>
           <th colspan="2">Date et Lieu de Mariage</th>
+          <th>Email</th>
+          <!-- <th>Email Secondaire</th> -->
+          <th>Adresse</th>
         </tr>
       </thead>
       <tbody>
@@ -29,6 +37,11 @@
             <td><% if !user.death_location.blank? %><%= user.death_location %><% end %></td>
             <td><% if !user.wedding_day.blank? %><%= user.wedding_day.strftime('%d/%m/%Y') %><% end %></td>
             <td><% if !user.wedding_location.blank? %><%= user.wedding_location %><% end %></td>
+            <td><% if user.email.split('@')[1] != "exemple.com" %><%= user.email %><% end %></td>
+            <!-- <td><% if !user.secondary_email.blank? %><%= user.secondary_email %><% end %></td> -->
+            <td><% if !user.address_line1.blank? || !user.address_country.blank? || !user.address_city.blank? %>
+              <% if !user.address_line1.blank? %><%= user.address_line1 %><% end %><% if !user.address_line2.blank? %>, <%= user.address_line2 %><% end %><% if !user.address_post_code.blank? %>, <%= user.address_post_code %><% end %><% if !user.address_city.blank? %>, <%= user.address_city %><% end %><% if !user.address_region.blank? %>, <%= user.address_region %><% end %><% if !user.address_country.blank? && !Country.find_country_by_alpha2(user.address_country).nil? %>, <%= Country.find_country_by_alpha2(user.address_country).translations['fr'] %><% end %>
+            <% end %></td>
           </tr>
         <% end %>
       </tbody>
