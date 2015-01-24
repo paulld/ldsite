@@ -14,12 +14,12 @@
 ActiveRecord::Schema.define(version: 20150120154219) do
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20150120154219) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.integer  "failed_attempts",        default: 0,  null: false
+    t.integer  "failed_attempts",        default: 0,     null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.string   "first_name"
@@ -36,9 +36,10 @@ ActiveRecord::Schema.define(version: 20150120154219) do
     t.string   "maiden_name"
     t.date     "birth_day"
     t.string   "birth_location"
-    t.boolean  "is_deceased"
+    t.boolean  "is_deceased",            default: false
     t.date     "death_day"
     t.string   "death_location"
+    t.boolean  "is_married",             default: false
     t.date     "wedding_day"
     t.string   "wedding_location"
     t.string   "secondary_email"

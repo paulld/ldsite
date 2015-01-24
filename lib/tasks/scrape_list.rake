@@ -20,15 +20,13 @@ namespace :scrape_family do
         user.last_name              = row.to_hash['last_name']            unless !row.to_hash['last_name']
         user.maiden_name            = row.to_hash['maiden_name']          unless !row.to_hash['maiden_name']
         user.birth_day              = row.to_hash['birth_day']            unless !row.to_hash['birth_day']
-        # user.birth_day              = "#{row.to_hash['birth_day']} 12:0:00.000000000 Z"            unless !row.to_hash['birth_day']
         user.birth_location         = row.to_hash['birth_location']       unless !row.to_hash['birth_location']
         user.death_day              = row.to_hash['death_day']            unless !row.to_hash['death_day']
-        # user.death_day              = "#{row.to_hash['death_day']} 12:0:00.000000000 Z"            unless !row.to_hash['death_day']
         user.death_location         = row.to_hash['death_location']       unless !row.to_hash['death_location']
-        # user.is_deceased            = if (user.death_day == "") then false else true end
+        user.is_deceased            = true if user.death_day?
         user.wedding_day            = row.to_hash['wedding_day']          unless !row.to_hash['wedding_day']
-        # user.wedding_day            = "#{row.to_hash['wedding_day']} 12:0:00.000000000 Z"          unless !row.to_hash['wedding_day']
         user.wedding_location       = row.to_hash['wedding_location']     unless !row.to_hash['wedding_location']
+        user.is_married             = true if user.wedding_day?
         user.address_line1          = row.to_hash['address_line1']        unless !row.to_hash['address_line1']
         user.address_post_code      = row.to_hash['address_post_code']    unless !row.to_hash['address_post_code']
         user.address_city           = row.to_hash['address_city']         unless !row.to_hash['address_city']
