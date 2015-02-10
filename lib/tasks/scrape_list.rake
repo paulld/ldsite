@@ -1,7 +1,10 @@
 namespace :scrape_family do 
 
   desc "Scrape Info from Family List"
-  task :get_names => :environment do
+  task :get_full_list => :environment do
+
+    User.delete_all
+    
     require 'open-uri'
     require 'csv'
 
