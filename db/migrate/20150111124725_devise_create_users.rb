@@ -59,7 +59,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string   :address_country
 
       t.integer  :family_level
-      t.boolean  :is_in_law
+      t.boolean  :is_in_law, default: false
 
       t.timestamps
     end
