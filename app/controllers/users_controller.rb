@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def index_trombi
-    @users = User.all
+    @users = User.all.order('username ASC')
   end
 
   def show
