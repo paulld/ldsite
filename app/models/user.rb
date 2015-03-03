@@ -16,6 +16,17 @@ class User < ActiveRecord::Base
   #   @login || self.username || self.email
   # end
 
+# #######################
+# GENEALOGY - IN PROGRESS
+
+  # has_many :children_as_father, class_name: 'User', foreign_key: 'father_id'
+  # belongs_to :father, class_name: 'User', foreign_key: 'father_id'
+  # has_many :children_as_mother, class_name: 'User', foreign_key: 'mother_id'
+  # belongs_to :mother, class_name: 'User', foreign_key: 'mother_id'
+
+# #######################
+
+
   has_attached_file :avatar,
                     :storage => :s3,
                     :s3_credentials => Proc.new{|a| a.instance.s3_credentials },
