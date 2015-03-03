@@ -8,7 +8,7 @@ namespace :scrape_family do
     require 'open-uri'
     require 'csv'
 
-    url = "https://s3.amazonaws.com/famille-ld/list.csv"
+    url = ENV['LIST_URL']
 
     url_data = open(url)
 
