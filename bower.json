@@ -1,0 +1,9 @@
+{
+  "name": "siteld",
+  "version": "0.1",
+  "main": "",
+  "private": true,
+  "dependencies": {
+    "noty": "2.3.4"
+  }
+}
