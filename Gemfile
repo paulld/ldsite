@@ -17,6 +17,9 @@ gem 'jquery-rails', '~> 2.3.0'
 # gem 'slim'
 gem 'nokogiri'
 
+# Bower
+gem 'bower'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -27,11 +30,19 @@ gem 'nokogiri'
 # Good for showing error messages when form has not passed validations
 gem 'simple_form'
 
+# Authenticate & admin
 gem 'devise'
+# gem 'cancancan', '~> 1.10'
+# User profile picture
+gem "paperclip", "~> 4.2"
+# Storing profile pictures in AWS S3
+gem 'aws-sdk', '~> 1.5.7'
+
+
+# i18n, locales, countries
 gem 'rails-i18n'
 gem 'countries'
 gem 'country_select'
-# gem 'cancancan', '~> 1.10'
 
 group :production do
   gem 'pg'
@@ -49,11 +60,6 @@ group :development, :test do
 end
 
 
-# User profile picture
-gem "paperclip", "~> 4.2"
-# Storing profile pictures in AWS S3
-gem 'aws-sdk', '~> 1.5.7'
-# Managing Sensitive ENV variables
 
 # gem 'local_time'
 # gem 'momentjs-rails'

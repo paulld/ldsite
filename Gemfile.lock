@@ -45,6 +45,7 @@ GEM
     bootstrap-sass (3.3.3)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
+    bower (0.0.2)
     builder (3.2.2)
     callsite (0.0.11)
     climate_control (0.0.3)
@@ -177,6 +178,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass (~> 3.3.0)
+  bower
   coffee-rails (~> 4.0.0)
   countries
   country_select
