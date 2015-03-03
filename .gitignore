@@ -25,7 +25,6 @@ config/initializers/secret_token.rb
 .rvmrc
 
 /bower_components/
-/app/assets/javascripts/noty
 
 .env
 Procfile
